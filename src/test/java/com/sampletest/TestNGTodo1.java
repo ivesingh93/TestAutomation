@@ -7,6 +7,7 @@ import java.net.URL;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
@@ -23,7 +24,9 @@ public class TestNGTodo1 {
     @BeforeMethod
     public void setup(Method m, ITestContext ctx) throws MalformedURLException {
         System.setProperty("webdriver.chrome.driver", "/Users/ivkaransingh/Downloads/chromedriver_mac64/chromedriver");
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless=new");
+        driver = new ChromeDriver(options);
 
     }
 
@@ -39,7 +42,7 @@ public class TestNGTodo1 {
         // Enter a search query
         searchTextBox.sendKeys("Selenium");
 
-        Thread.sleep(2000);
+        Thread.sleep(4000);
 
         // Click the search button
         WebElement searchButton = driver.findElement(By.name("btnK"));
@@ -68,7 +71,7 @@ public class TestNGTodo1 {
         // Enter a search query
         searchTextBox.sendKeys("Maven");
 
-        Thread.sleep(2000);
+        Thread.sleep(4000);
 
         // Click the search button
         WebElement searchButton = driver.findElement(By.name("btnK"));
