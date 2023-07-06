@@ -144,6 +144,62 @@ public class TestNGTodo1 {
 
     }
 
+    @Test
+    public void basicTest5() throws InterruptedException {
+
+        // Navigate to the Google homepage
+        driver.get("https://www.google.com");
+
+        // Locate the search text box
+        WebElement searchTextBox = driver.findElement(By.name("q"));
+
+        // Enter a search query
+        searchTextBox.sendKeys("ChromeDriver");
+
+        Thread.sleep(4000);
+
+        // Click the search button
+        WebElement searchButton = driver.findElement(By.name("btn"));
+        searchButton.click();
+
+        // Verify that the search results page is displayed
+        String expectedTitle = "ChromeDriver - Google Search";
+        String actualTitle = driver.getTitle();
+        assert expectedTitle.equals(actualTitle);
+
+        // Close the browser
+        driver.quit();
+
+    }
+
+    @Test
+    public void basicTest6() throws InterruptedException {
+
+        // Navigate to the Google homepage
+        driver.get("https://www.google.com");
+
+        // Locate the search text box
+        WebElement searchTextBox = driver.findElement(By.name("q"));
+
+        // Enter a search query
+        searchTextBox.sendKeys("Threads");
+
+        Thread.sleep(4000);
+
+        // Click the search button
+        WebElement searchButton = driver.findElement(By.name("btnK"));
+        searchButton.click();
+
+        // Verify that the search results page is displayed
+        String expectedTitle = "Threads - Google Search";
+        String actualTitle = driver.getTitle();
+        assert expectedTitle.equals(actualTitle);
+
+        // Close the browser
+        driver.quit();
+
+    }
+
     @AfterMethod
     public void tearDown() {
         driver.quit();
