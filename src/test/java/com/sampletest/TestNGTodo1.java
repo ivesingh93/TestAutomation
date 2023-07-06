@@ -55,6 +55,35 @@ public class TestNGTodo1 {
 
     }
 
+
+    @Test
+    public void basicTest2() throws InterruptedException {
+
+        // Navigate to the Google homepage
+        driver.get("https://www.google.com");
+
+        // Locate the search text box
+        WebElement searchTextBox = driver.findElement(By.name("q"));
+
+        // Enter a search query
+        searchTextBox.sendKeys("Maven");
+
+        Thread.sleep(2000);
+
+        // Click the search button
+        WebElement searchButton = driver.findElement(By.name("btnK"));
+        searchButton.click();
+
+        // Verify that the search results page is displayed
+        String expectedTitle = "Maven - Google Search";
+        String actualTitle = driver.getTitle();
+        assert expectedTitle.equals(actualTitle);
+
+        // Close the browser
+        driver.quit();
+
+    }
+
     @AfterMethod
     public void tearDown() {
         driver.quit();
